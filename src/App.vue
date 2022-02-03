@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <search-box @search='getMovies'/>
-    <main-container/>
+    <main-container :movies='moviesList'/>
   </div>
 </template>
 

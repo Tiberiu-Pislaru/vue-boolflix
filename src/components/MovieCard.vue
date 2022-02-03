@@ -18,9 +18,9 @@
 
         <div class="language">
             Lingua: 
-            <span  v-if="flags.includes(card.original_language)">
-                <img class="flag" :src="`@/assets/flag/${card.original_language}.png`"  :alt="`${card.original_language}`">
-            </span>
+            <div class="span-flag" v-if="flags.includes(card.original_language)">
+                <img class="flag" src="../assets/flag/en.png"  :alt="`${card.original_language}`">
+            </div>
             <span v-else>{{card.original_language}}</span>
         </div>
 
@@ -50,9 +50,13 @@ export default {
         width:100%;
         object-fit: cover;
     }
+}
+.span-flag{
+    width: 30px;
+    display:inline-block;
+    
     .flag{
-        width:36px;
-        height:27px;
+        width: 100%;
     }
 }
    

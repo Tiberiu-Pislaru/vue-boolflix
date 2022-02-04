@@ -43,7 +43,7 @@
 export default {
     data(){
         return{
-            img:`@/assets/${this.card.original_language}.png`
+            img:`/flags/${this.card.original_language}.png`
         }
     },
     props: {

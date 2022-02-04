@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-    margin-top:30px;
+    // margin-top:30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

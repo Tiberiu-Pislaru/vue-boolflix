@@ -18,8 +18,8 @@
 
         <div class="language">
             Lingua: 
-            <div class="span-flag" v-if="flags.includes(card.original_language)">
-                <img class="flag" src="../assets/flag/en.png"  :alt="`${card.original_language}`">
+            <div class="container-flag" v-if="flags.includes(card.original_language)">
+                <img class="flag" accept="image/*" :src=img  :alt="`${card.original_language}`">
             </div>
             <span v-else>{{card.original_language}}</span>
         </div>
@@ -33,6 +33,11 @@
 
 <script>
 export default {
+    data(){
+        return{
+            img:`C:/Users/TIBERIO/Desktop/Sviluppo/vue-boolflix/src/assets/${this.card.original_language}.png`
+        }
+    },
     props: {
         card:Object,
         flags:Array
@@ -51,7 +56,7 @@ export default {
         object-fit: cover;
     }
 }
-.span-flag{
+.container-flag{
     width: 30px;
     display:inline-block;
     

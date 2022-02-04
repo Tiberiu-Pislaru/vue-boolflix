@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 header{
-    position: fixed;
+    position: sticky;
     display: flex;
     align-items: center;
     top: 0;

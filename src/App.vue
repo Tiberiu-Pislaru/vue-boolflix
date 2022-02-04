@@ -17,13 +17,26 @@ export default {
     MainContainer,
   },
   methods: {
-    getMovies(string){
-      
-      if (!string==''){
 
-        axios.get("https://api.themoviedb.org/3/search/movie?query="+string+"&api_key=f760cceed080dd564aa1a8619b8ac208").then((result)=>{
-          this.moviesList=result.data.results;
+    async getMovies(query){
+      this.moviesList= await this.getAPI('movie',query);
+    },
+    async getSeries(query){
+      this.seriesList= await this.getAPI('movie',query);
+    },
+    async getAPI(type, query){
+      
+      const params = {
+        query:query,
+        api_key:'f760cceed080dd564aa1a8619b8ac208'
+      }
+
+      if (!query==''){
+
+        const result = await axios.get(`https://api.themoviedb.org/3/search/${type}`,{params}).then((result)=>{
+          return result.data.results;
         })
+        return result
       }
      
     }
@@ -31,6 +44,7 @@ export default {
   data(){
     return {
       moviesList:[],
+      seriesList:[],
       listFlags:['de','en','es','fr','hi','id','ja','pt','ro','ru','zh']
     }
   }

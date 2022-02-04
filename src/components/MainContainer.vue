@@ -1,7 +1,7 @@
 <template>
     <div class='container' >
-        <div class="card" v-for="movie in movies" :key="movie.id">
-            <movie-card :card='movie' :flags="flagsArray"/>
+        <div class="card" v-for="video in videos" :key="video.id">
+            <movie-card :card='video' :flags="flagsArray"/>
         </div>
     </div>
 </template>
@@ -13,7 +13,7 @@ export default {
         MovieCard,
     },
     props: {
-        movies:Array,
+        videos:Array,
         flagsArray:Array
     }
 }

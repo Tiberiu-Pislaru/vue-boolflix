@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <search-box @search='getMovies'/>
-    <main-container :movies='moviesList' :flagsArray='listFlags'/>
+    <search-box @search='getTVAndMovies'/>
+    <main-container :videos='allVideos' :flagsArray='listFlags'/>
   </div>
 </template>
 
@@ -18,17 +18,25 @@ export default {
   },
   methods: {
 
+    async getTVAndMovies(query){
+      await this.getMovies(query);
+      await this.getSeries(query);
+      this.allVideos=[...this.moviesList,...this.seriesList];
+      console.log(this.allVideos)
+    },
+
     async getMovies(query){
       this.moviesList= await this.getAPI('movie',query);
     },
     async getSeries(query){
-      this.seriesList= await this.getAPI('movie',query);
+      this.seriesList= await this.getAPI('tv',query);
     },
     async getAPI(type, query){
       
       const params = {
         query:query,
-        api_key:'f760cceed080dd564aa1a8619b8ac208'
+        api_key:'f760cceed080dd564aa1a8619b8ac208',
+        include_adult:false
       }
 
       if (!query==''){
@@ -45,7 +53,8 @@ export default {
     return {
       moviesList:[],
       seriesList:[],
-      listFlags:['de','en','es','fr','hi','id','ja','pt','ro','ru','zh']
+      listFlags:['de','en','es','fr','ja','pt','ro','ru','zh'],
+      allVideos:[]
     }
   }
 }

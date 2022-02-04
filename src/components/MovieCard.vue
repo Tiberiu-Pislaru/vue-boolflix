@@ -6,14 +6,22 @@
             <img :src="`https://image.tmdb.org/t/p/original${card.poster_path}`" alt="">
         </div>
 
-        <div class="title">
+        <div v-if="card.title!==undefined" class="title">
             Titolo: 
             {{card.title}}
         </div>
+        <div v-else class="title">
+            Titolo: 
+            {{card.name}}
+        </div>
 
-        <div class="original-title">
+        <div v-if="card.original_title!==undefined" class="original-title">
             Titolo originale: 
             {{card.original_title}}
+        </div>
+        <div v-else class="original-title">
+            Titolo originale: 
+            {{card.original_name}}
         </div>
 
         <div class="language">
@@ -35,7 +43,7 @@
 export default {
     data(){
         return{
-            img:`C:/Users/TIBERIO/Desktop/Sviluppo/vue-boolflix/src/assets/${this.card.original_language}.png`
+            img:`@/assets/${this.card.original_language}.png`
         }
     },
     props: {

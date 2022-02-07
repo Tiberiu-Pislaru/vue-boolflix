@@ -32,7 +32,6 @@ export default {
 
     .card{
         margin-right: 15px;
-        background: #000;
     }
 }
 </style>

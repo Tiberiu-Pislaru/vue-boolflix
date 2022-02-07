@@ -6,11 +6,11 @@
             <div class="img-container">
 
                 <img v-if="card.poster_path!==null" :src="`https://image.tmdb.org/t/p/original/${card.poster_path}`" alt="">
-                <img v-else src="@/assets/placeholder.png" alt="placeholder">
+                <img  class="placeholder" v-else src="@/assets/placeholder.jpg" alt="placeholder">
             </div>
         </div>
 
-        <div class="content-card mg-all">
+        <div class="content-card pd-all">
 
             <div v-if="card.title!==undefined" class="title mg">
                 Titolo: 
@@ -87,6 +87,9 @@ export default {
         .img-container{
             width: 100%;
         }
+        .placeholder{
+            object-fit:contain;
+        }
         img{
             width: 100%;
             height: 100%;
@@ -98,6 +101,8 @@ export default {
         display: none;
         height: 100%;
         text-align: center;
+        background: #000;
+        
         
         
         .title{

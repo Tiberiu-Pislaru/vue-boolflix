@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <search-box @search='getTVAndMovies'/>
+    <header-box @search='getTVAndMovies'/>
     <main-container :videos='allVideos' :flagsArray='listFlags'/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import SearchBox from './components/SearcheBox.vue'
+import HeaderBox from './components/SearcheBox.vue'
 import MainContainer from './components/MainContainer.vue'
 
 export default {
   name: 'App',
   components: {
-    SearchBox,
+    HeaderBox,
     MainContainer,
   },
   methods: {

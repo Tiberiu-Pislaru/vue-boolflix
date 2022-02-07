@@ -67,6 +67,9 @@ export default {
   box-sizing: border-box;
 }
 body{
-  background-color: #adadad;
+  background-color: #000000;
+}
+#app{
+  margin: 15px;
 }
 </style>

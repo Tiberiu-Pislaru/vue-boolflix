@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="content-card">
+        <div class="content-card mg-all">
 
             <div v-if="card.title!==undefined" class="title mg">
                 Titolo: 
@@ -40,14 +40,20 @@
 
             <div class="vote mg-x">
                 Voto: 
-                {{card.vote_average}}
+                <span v-for="el in starConvert" :key="el">
+                    <star-value/>
+                </span>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import StarValue from "./StarValue.vue"
 export default {
+    components:{
+        StarValue
+    },
     data(){
         return{
             img:`/flags/${this.card.original_language}.png`,
@@ -58,6 +64,11 @@ export default {
         card:Object,
         flags:Array
     },
+    computed:{
+        starConvert(){
+            return Math.round(this.card.vote_average)/2
+        }
+    }
     
 }
 </script>
@@ -87,6 +98,7 @@ export default {
         display: none;
         height: 100%;
         text-align: center;
+        
         
         .title{
             color:#fff;

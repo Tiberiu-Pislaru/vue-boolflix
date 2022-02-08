@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/main.scss";
 header{
+
     position: sticky;
     display: flex;
     align-items: center;
@@ -34,18 +35,22 @@ header{
     left: 15px;
     display: flex;
     justify-content: space-between;
+    background-color: #000;
+    margin-bottom: 30px;
     
 
     .left {
         
         .logo {
             font-size:30px;
-            color: rgb(80, 80, 80);
+            color: #d7d7d7;
+            font-weight: bold;
         }
     }
     
     .right{
-
+        display: flex;
+        align-items: center;
         button{
             all:unset;
             cursor: pointer;

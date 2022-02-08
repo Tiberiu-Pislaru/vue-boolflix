@@ -5,12 +5,12 @@
 
             <div class="img-container">
 
-                <img v-if="card.poster_path!==null" :src="`https://image.tmdb.org/t/p/original/${card.poster_path}`" alt="">
+                <img v-if="card.poster_path!==null" :src="`https://image.tmdb.org/t/p/w185/${card.poster_path}`" alt="">
                 <img  class="placeholder" v-else src="@/assets/placeholder.jpg" alt="placeholder">
             </div>
         </div>
 
-        <div class="content-card pd-all">
+        <div class="content-card ">
 
             <div v-if="card.title!==undefined" class="title mg">
                 Titolo: 
@@ -77,33 +77,34 @@ export default {
 @import '@/style/main.scss';
 
 .card-single{
+    
+    width:185px;
     height: 100%;
-    width:342px;
     color: #fff;
+    transition: all 1s;
+   
    
     .copertina{
         display: block;
        
         .img-container{
             width: 100%;
-        }
-        .placeholder{
-            object-fit:contain;
+            height: 100%;
         }
         img{
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        
     }
 
     .content-card{
         display: none;
         height: 100%;
+        width: 100%;
         text-align: center;
-        background: #000;
-        
-        
+        background: rgb(73, 73, 73);
         
         .title{
             color:#fff;
@@ -118,6 +119,12 @@ export default {
 
     }
 
+    &:hover{
+        transform: scale(1.1);
+        z-index: 999;
+        transition: all 1s;
+    }
+
     &:hover .copertina{
         display: none;
        
@@ -125,7 +132,7 @@ export default {
     &:hover .content-card{
         display: block;
         height: 100%;
-       
+        width: 100%;
     }
 }
    

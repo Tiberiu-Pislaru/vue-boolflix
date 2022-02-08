@@ -24,14 +24,15 @@ export default {
 
 .container{
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
+    padding: 15px 0;
 
     &::-webkit-scrollbar{
         display: none;
     }
 
     .card{
-        margin-right: 15px;
+        margin-right: 5px;
     }
 }
 </style>

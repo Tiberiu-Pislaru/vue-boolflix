@@ -120,7 +120,6 @@ export default {
     }
 
     &:hover .content-card{
-        z-index: 999;
         height: 100%;
         width: 100%;
         display: flex;

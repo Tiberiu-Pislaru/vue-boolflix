@@ -29,6 +29,7 @@ export default {
 header{
 
     position: sticky;
+    z-index: 20000000;
     display: flex;
     align-items: center;
     top: 0;

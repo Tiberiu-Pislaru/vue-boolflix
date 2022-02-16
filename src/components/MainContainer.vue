@@ -25,14 +25,20 @@ export default {
 .container{
     display: flex;
     overflow-x: scroll;
-    padding: 15px 0;
+    padding: 80px 0;
+    padding-left: 20px;
 
     &::-webkit-scrollbar{
         display: none;
     }
 
     .card{
-        margin-right: 5px;
+        
+        &:hover{
+            transform: scale(1.3);
+            z-index: 999;
+            transition: all .5s;
+        }
     }
 }
 </style>

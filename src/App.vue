@@ -22,7 +22,6 @@ export default {
       await this.getMovies(query);
       await this.getSeries(query);
       this.allVideos=[...this.moviesList,...this.seriesList];
-      console.log(this.allVideos)
     },
 
     async getMovies(query){

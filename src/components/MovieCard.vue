@@ -5,7 +5,7 @@
 
             <div class="img-container">
 
-                <img v-if="card.poster_path!==null" :src="`https://image.tmdb.org/t/p/w185/${card.poster_path}`" alt="">
+                <img v-if="card.poster_path!==null" :src="`https://image.tmdb.org/t/p/w185${card.poster_path}`" alt="">
                 <img  class="placeholder" v-else src="@/assets/placeholder.jpg" alt="placeholder">
             </div>
         </div>
@@ -56,8 +56,7 @@ export default {
     },
     data(){
         return{
-            img:`/flags/${this.card.original_language}.png`,
-            hover:false,
+            img:`/flags/${this.card.original_language}.png`
         }
     },
     props: {
@@ -66,7 +65,7 @@ export default {
     },
     computed:{
         starConvert(){
-            return Math.round(this.card.vote_average)/2
+            return Math.round(this.card.vote_average/2)
         }
     }
     
@@ -74,26 +73,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 @import '@/style/main.scss';
 
 .card-single{
     
     width:185px;
-    height: 100%;
     color: #fff;
-    transition: all 1s;
+    position: relative;
+    
    
    
     .copertina{
         display: block;
        
         .img-container{
-            width: 100%;
-            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
         }
         img{
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: cover;
         }
         
@@ -103,8 +103,8 @@ export default {
         display: none;
         height: 100%;
         width: 100%;
-        text-align: center;
-        background: rgb(73, 73, 73);
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.8);
         
         .title{
             color:#fff;
@@ -119,20 +119,18 @@ export default {
 
     }
 
-    &:hover{
-        transform: scale(1.1);
-        z-index: 999;
-        transition: all 1s;
-    }
-
-    &:hover .copertina{
-        display: none;
-       
-    }
     &:hover .content-card{
-        display: block;
+        z-index: 999;
         height: 100%;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        
     }
 }
    
